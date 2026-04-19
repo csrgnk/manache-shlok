@@ -22,7 +22,6 @@
     /* 2. CLEAN URL LOGIC */
     function cleanUrl() {
         if (window.location.pathname.endsWith("index.html")) {
-            // Removes 'index.html' but keeps '?page=X'
             let newPath = window.location.pathname.replace("index.html", "");
             let newUrl = newPath + window.location.search;
             window.history.replaceState(null, "", newUrl);
@@ -40,8 +39,6 @@
         color: #333;
         overflow-x: hidden;
         -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
         user-select: none;
     }
 
@@ -236,25 +233,37 @@ const paginationDiv = document.getElementById("pagination");
 const pageBadge = document.getElementById("current-page");
 const btmNav = document.getElementById("bottom-nav");
 
-let page = new URLSearchParams(window.location.search).get("page") || 1;
-page = parseInt(page);
+// Get page from URL or default to 1
+let urlParams = new URLSearchParams(window.location.search);
+let page = parseInt(urlParams.get("page")) || 1;
 
 function loadPage(p) {
   pageBadge.innerText = p;
-  fetch("pages/page" + p + ".html")
-    .then(res => { if (!res.ok) throw new Error(); return res.text(); })
-    .then(data => { contentDiv.innerHTML = data; updateButtons(); })
-    .catch(() => {
+  
+  // Use absolute relative path to avoid navigation errors
+  fetch("./pages/page" + p + ".html")
+    .then(res => { 
+      if (!res.ok) throw new Error("File not found: page" + p); 
+      return res.text(); 
+    })
+    .then(data => { 
+      contentDiv.innerHTML = data; 
+      updateButtons();
+      // Scroll to content top for better mobile experience
+      window.scrollTo({ top: 200, behavior: 'smooth' });
+    })
+    .catch((err) => {
+      console.log("Error loading page:", err);
       contentDiv.innerHTML = `
         <div class="coming-soon-container">
           <h2>Coming Soon</h2>
-          <p>Hindi content is being prepared.</p>
+          <p>Hindi content for page ${p} is being prepared.</p>
         </div>`;
       updateButtons();
     });
 }
 
-// Generate Clean Pagination Links (No index.html used)
+// Generate Pagination Links
 for (let i = 1; i <= totalPages; i++) {
   const a = document.createElement("a");
   a.href = "?page=" + i;
@@ -263,7 +272,9 @@ for (let i = 1; i <= totalPages; i++) {
   paginationDiv.appendChild(a);
 }
 
-function sideScroll(d) { paginationDiv.scrollBy({ left: d, behavior: 'smooth' }); }
+function sideScroll(d) { 
+  paginationDiv.scrollBy({ left: d, behavior: 'smooth' }); 
+}
 
 function updateButtons() {
   btmNav.innerHTML = `
@@ -273,10 +284,14 @@ function updateButtons() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  cleanUrl(); // Run URL cleaning
+  cleanUrl(); 
   loadPage(page);
-  const active = document.querySelector(".active");
-  if (active) active.scrollIntoView({ behavior: "smooth", inline: "center" });
+  
+  // Center active number in scroll view
+  setTimeout(() => {
+    const active = document.querySelector(".active");
+    if (active) active.scrollIntoView({ behavior: "smooth", inline: "center" });
+  }, 300);
 });
 </script>
 
