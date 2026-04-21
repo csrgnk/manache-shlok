@@ -1,340 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="text/javascript">
-    // Disable Right-Click
-    document.addEventListener('contextmenu', event => event.preventDefault());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manache Shlok - Telugu Version</title>
 
-    // Disable Keyboard Shortcuts (Copy, Paste, View Source, Save, Inspect)
-    document.onkeydown = function(e) {
-        if (e.ctrlKey && 
-            (e.keyCode === 67 || // Ctrl+C
-             e.keyCode === 86 || // Ctrl+V
-             e.keyCode === 85 || // Ctrl+U
-             e.keyCode === 83 || // Ctrl+S
-             e.keyCode === 73 || // Ctrl+Shift+I
-             e.keyCode === 123)) { // F12
-            return false;
+    <script type="text/javascript">
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 73 || e.keyCode === 123)) {
+                return false;
+            }
+        };
+        document.onselectstart = function() { return false; };
+    </script>
+
+    <style>
+        /* ===== Global Reset & Theme ===== */
+        :root { --primary-orange: #FF6600; --dark-blue: #0D1B3D; --bg-light: #F4F7F6; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, sans-serif; background: var(--bg-light); color: #333; -webkit-user-select: none; user-select: none; }
+
+        /* ===== Top Navigation ===== */
+        .top-header-nav { background: var(--primary-orange); padding: 12px 0; overflow-x: auto; white-space: nowrap; display: flex; scrollbar-width: none; }
+        .top-header-nav::-webkit-scrollbar { display: none; }
+        .nav-links-container { display: flex; gap: 12px; padding: 0 15px; }
+        .nav-links-container a { text-decoration: none; color: var(--primary-orange); background: white; font-weight: bold; font-size: 14px; padding: 8px 18px; border-radius: 5px; }
+
+        /* ===== Main Site Style Header ===== */
+        .site-header { background: #fff9db; padding: 15px; border-bottom: 2px solid #ddd; }
+        .header-box { display: flex; align-items: center; gap: 15px; max-width: 800px; margin: auto; }
+        .logo { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-orange); }
+        .site-name-wrapper h1 { display: flex; flex-direction: row; gap: 8px; margin: 0; font-size: 1.6rem; font-weight: 900; color: var(--primary-orange); }
+
+        @media (max-width: 600px) {
+            .site-name-wrapper h1 { flex-direction: column; gap: 0; font-size: 1.3rem; }
         }
-    };
 
-    // Disable Text Selection via JavaScript
-    document.onselectstart = function() { return false; };
-</script>
+        /* ===== Page Navigation & Pagination ===== */
+        .page-nav-section { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 20px 0; background: white; }
+        .book-name-badge { background: var(--primary-orange); color: white; padding: 10px 25px; border-radius: 30px; font-weight: bold; font-size: 16px; }
+        .scroll-controls { display: flex; align-items: center; justify-content: center; width: 100%; }
+        .scroll-btn { background: var(--primary-orange); color: white; border: none; border-radius: 4px; padding: 8px 14px; cursor: pointer; }
+        .numbers-wrapper { display: flex; overflow-x: auto; white-space: nowrap; gap: 8px; padding: 5px 15px; max-width: 80%; scrollbar-width: none; }
+        .numbers-wrapper::-webkit-scrollbar { display: none; }
+        .numbers-wrapper a { text-decoration: none; color: var(--primary-orange); font-weight: bold; border: 1px solid var(--primary-orange); padding: 7px 15px; border-radius: 4px; font-size: 14px; }
+        .numbers-wrapper a.active { background: var(--primary-orange); color: white; }
 
-<style>
-    /* Disable Text Selection via CSS */
-    body {
-        -webkit-user-select: none;  /* Safari */
-        -moz-user-select: none;     /* Firefox */
-        -ms-user-select: none;      /* IE/Edge */
-        user-select: none;          /* Standard */
-    }
+        /* ===== Content Card ===== */
+        .main-content-card { max-width: 90%; width: 850px; margin: 50px auto; background: #FFFDE7; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); min-height: 350px; position: relative; }
+        .badge-pos { display: flex; justify-content: center; margin-top: -55px; margin-bottom: 25px; }
+        .round-badge { background: var(--primary-orange); color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 4px solid var(--bg-light); }
+        .page-text-content { font-size: 20px; text-align: center; color: #5C2E00; }
+        .page-text-content h2, .page-text-content h3 { color: var(--primary-orange); font-size: 26px; margin: 20px 0; }
 
-    /* Additional Protection for Images */
-    img {
-        pointer-events: none;
-        -webkit-user-drag: none;
-    }
-</style>
-  
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manache Shlok - Telugu Version</title>
-
-<style>
-/* ===== Global Reset ===== */
-* { box-sizing: border-box; }
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #F4F7F6;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  overflow-x: hidden;
-}
-
-/* ===== Top Orange Navigation ===== */
-.top-header-nav {
-  background-color: #FF6600; /* Orange Setup */
-  padding: 12px 0;
-  overflow-x: auto;
-  white-space: nowrap;
-  display: flex;
-  scrollbar-width: none;
-}
-.top-header-nav::-webkit-scrollbar { display: none; }
-
-.nav-links-container {
-  display: flex;
-  gap: 12px;
-  padding: 0 15px;
-}
-
-.nav-links-container a {
-  text-decoration: none;
-  color: #FF6600; /* Orange Text */
-  background-color: white;
-  font-weight: bold;
-  font-size: 14px;
-  padding: 8px 18px;
-  border-radius: 5px;
-}
-
-/* ===== Channel Name Section ===== */
-.site-title-box {
-  background-color: #FFFDE7;
-  padding: 30px 10px;
-  text-align: center;
-  border-bottom: 4px solid #FFD600;
-}
-
-.site-title-box h1 {
-  color: #FF6600; /* Orange Header Text */
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.3;
-}
-
-/* ===== Page Navigation Section ===== */
-.page-nav-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 20px 0;
-  background: white;
-}
-
-/* Book Name Badge - Orange Curved Box */
-.book-name-badge {
-  background-color: #FF6600;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 16px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.scroll-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.scroll-btn {
-  background-color: #FF6600;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 14px;
-  cursor: pointer;
-}
-
-.numbers-wrapper {
-  display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-  gap: 8px;
-  padding: 5px 15px;
-  max-width: 80%;
-  scrollbar-width: none;
-}
-.numbers-wrapper::-webkit-scrollbar { display: none; }
-
-.numbers-wrapper a {
-  text-decoration: none;
-  color: #FF6600;
-  font-weight: bold;
-  border: 1px solid #FF6600;
-  padding: 7px 15px;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.numbers-wrapper a.active {
-  background-color: #FF6600;
-  color: white;
-}
-
-/* ===== Content Box Styling ===== */
-.main-content-card {
-  max-width: 90%;
-  width: 850px;
-  margin: 50px auto;
-  background-color: #FFFDE7;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  min-height: 350px;
-  position: relative;
-}
-
-.badge-pos {
-  display: flex;
-  justify-content: center;
-  margin-top: -55px;
-  margin-bottom: 25px;
-}
-.round-badge {
-  background-color: #FF6600;
-  color: white;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  border: 4px solid #F4F7F6;
-}
-
-/* Content Text Styling */
-.page-text-content { 
-  font-size: 20px; 
-  text-align: center;
-  color: #5C2E00; /* Dark Brown Main Text */
-}
-
-/* H2 & H3 Orange Text (Normal, No Box) */
-.page-text-content h2, 
-.page-text-content h3 {
-  color: #FF6600; 
-  font-size: 26px;
-  margin: 20px 0;
-  font-weight: bold;
-}
-
-/* Coming Soon Box - Orange Setup */
-.coming-soon-container {
-  background-color: #FF6600;
-  color: white;
-  padding: 40px 15px;
-  border-radius: 12px;
-  text-align: center;
-  width: 100%;
-}
-.coming-soon-container h2 { 
-  color: white !important; 
-  font-size: 28px; 
-  margin: 0;
-}
-
-/* ===== Nav Buttons ===== */
-.bottom-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 0;
-}
-.nav-btn {
-  background-color: #FF6600;
-  color: white;
-  text-decoration: none;
-  padding: 12px 25px;
-  border-radius: 25px;
-  font-weight: bold;
-}
-
-/* ===== Footer ===== */
-.footer {
-  background-color: #0D1B3D;
-  color: white;
-  text-align: center;
-  padding: 30px;
-  margin-top: 50px;
-}
-</style>
+        /* ===== Footer & Buttons ===== */
+        .bottom-nav { display: flex; justify-content: space-between; padding: 20px 0; }
+        .nav-btn { background: var(--primary-orange); color: white; text-decoration: none; padding: 12px 25px; border-radius: 25px; font-weight: bold; }
+        .footer { background: var(--dark-blue); color: white; text-align: center; padding: 30px; margin-top: 50px; }
+    </style>
 </head>
-
 <body>
 
 <nav class="top-header-nav">
-  <div class="nav-links-container">
-    <a href="https://csrgnk.github.io/manache-shlok/">Home</a>
-    <a href="https://csrgnk.github.io/manache-shlok-hindi/">Hindi Version</a>
-    <a href="https://csrgnk.github.io/omnnbc/">Main Site</a>
-    <a href="https://csrgnk.github.io/Dasabodha/">Dasabodha</a>
-    <a href="https://csrgnk.github.io/Upasana-Chandrika/">Upasana Chandrika</a>
-  </div>
+    <div class="nav-links-container">
+        <a href="https://csrgnk.github.io/manache-shlok/">Home</a>
+        <a href="https://csrgnk.github.io/manache-shlok-hindi/">Hindi Version</a>
+        <a href="https://omnnbc.com/">Main Site</a>
+        <a href="https://csrgnk.github.io/Dasabodha/">Dasabodha</a>
+        <a href="https://csrgnk.github.io/Upasana-Chandrika/">Upasana Chandrika</a>
+    </div>
 </nav>
 
-<div class="site-title-box">
-  <h1>Namo Narayanaya<br>Bhakthi Channel</h1>
-</div>
+<header class="site-header">
+    <div class="header-box">
+        <img src="https://omnnbc.com/assets/images/Omnnbc-new.png" class="logo" alt="Logo" width="60" height="60" fetchpriority="high">
+        <div class="site-name-wrapper">
+            <h1><span>Namo Narayanaya</span> <span>Bhakthi Channel</span></h1>
+        </div>
+    </div>
+</header>
 
 <div class="page-nav-section">
-  <div class="book-name-badge">Manache Shlok (Telugu)</div>
-  <div class="scroll-controls">
-    <button class="scroll-btn" onclick="sideScroll(-150)">&#10094;</button>
-    <div class="numbers-wrapper" id="pagination"></div>
-    <button class="scroll-btn" onclick="sideScroll(150)">&#10095;</button>
-  </div>
+    <div class="book-name-badge">Manache Shlok (Telugu)</div>
+    <div class="scroll-controls">
+        <button class="scroll-btn" onclick="sideScroll(-150)">&#10094;</button>
+        <div class="numbers-wrapper" id="pagination"></div>
+        <button class="scroll-btn" onclick="sideScroll(150)">&#10095;</button>
+    </div>
 </div>
 
 <main class="main-content-card">
-  <div class="badge-pos">
-    <div class="round-badge" id="current-page">1</div>
-  </div>
-  
-  <div id="content" class="page-text-content">Loading Content...</div>
-
-  <div class="bottom-nav" id="bottom-nav"></div>
+    <div class="badge-pos">
+        <div class="round-badge" id="current-page">1</div>
+    </div>
+    <div id="content" class="page-text-content">Loading Content...</div>
+    <div class="bottom-nav" id="bottom-nav"></div>
 </main>
 
 <footer class="footer">
-  © 2026 Namo Narayanaya Bhakthi Channel | All Rights Reserved
+    © 2026 Namo Narayanaya Bhakthi Channel | All Rights Reserved
 </footer>
 
 <script>
-const totalPages = 16;
-const contentDiv = document.getElementById("content");
-const paginationDiv = document.getElementById("pagination");
-const pageBadge = document.getElementById("current-page");
-const btmNav = document.getElementById("bottom-nav");
+    const totalPages = 16;
+    const contentDiv = document.getElementById("content");
+    const paginationDiv = document.getElementById("pagination");
+    const pageBadge = document.getElementById("current-page");
+    const btmNav = document.getElementById("bottom-nav");
 
-let page = new URLSearchParams(window.location.search).get("page") || 1;
-page = parseInt(page);
+    let page = new URLSearchParams(window.location.search).get("page") || 1;
+    page = parseInt(page);
 
-function loadPage(p) {
-  pageBadge.innerText = p;
-  fetch("pages/page" + p + ".html")
-    .then(res => { if (!res.ok) throw new Error(); return res.text(); })
-    .then(data => { contentDiv.innerHTML = data; updateButtons(); })
-    .catch(() => {
-      contentDiv.innerHTML = `
-        <div class="coming-soon-container">
-          <h2>Coming Soon</h2>
-          <p>Content is being prepared.</p>
-        </div>`;
-      updateButtons();
+    function loadPage(p) {
+        pageBadge.innerText = p;
+        fetch("pages/page" + p + ".html")
+            .then(res => { if (!res.ok) throw new Error(); return res.text(); })
+            .then(data => { contentDiv.innerHTML = data; updateButtons(); })
+            .catch(() => {
+                contentDiv.innerHTML = `<div style="background:var(--primary-orange);color:white;padding:40px;border-radius:12px;"><h2>Coming Soon</h2><p>Preparing content...</p></div>`;
+                updateButtons();
+            });
+    }
+
+    for (let i = 1; i <= totalPages; i++) {
+        const a = document.createElement("a");
+        a.href = "?page=" + i;
+        a.innerText = i;
+        if (i === page) a.className = "active";
+        paginationDiv.appendChild(a);
+    }
+
+    function sideScroll(d) { paginationDiv.scrollBy({ left: d, behavior: 'smooth' }); }
+
+    function updateButtons() {
+        btmNav.innerHTML = `
+            ${page > 1 ? `<a href="?page=${page-1}" class="nav-btn">Previous</a>` : '<div></div>'}
+            ${page < totalPages ? `<a href="?page=${page+1}" class="nav-btn">Next</a>` : '<div></div>'}
+        `;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        loadPage(page);
+        const active = document.querySelector(".active");
+        if (active) active.scrollIntoView({ behavior: "smooth", inline: "center" });
     });
-}
-
-for (let i = 1; i <= totalPages; i++) {
-  const a = document.createElement("a");
-  a.href = "?page=" + i;
-  a.innerText = i;
-  if (i === page) a.className = "active";
-  paginationDiv.appendChild(a);
-}
-
-function sideScroll(d) { paginationDiv.scrollBy({ left: d, behavior: 'smooth' }); }
-
-function updateButtons() {
-  btmNav.innerHTML = `
-    ${page > 1 ? `<a href="?page=${page-1}" class="nav-btn">Previous</a>` : '<div></div>'}
-    ${page < totalPages ? `<a href="?page=${page+1}" class="nav-btn">Next</a>` : '<div></div>'}
-  `;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  loadPage(page);
-  const active = document.querySelector(".active");
-  if (active) active.scrollIntoView({ behavior: "smooth", inline: "center" });
-});
 </script>
 
 </body>
